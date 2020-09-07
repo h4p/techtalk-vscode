@@ -1,323 +1,50 @@
-
 <!doctype html>
-<html lang="en">
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-    <head>
-        <meta charset="utf-8">
+		<title>reveal.js</title>
 
-        <title>Your First Open Source Project</title>
+		<link rel="stylesheet" href="css/reset.css">
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css">
 
-        <meta name="description" content="GitLab CI/CD Techtalk">
-        <meta name="author" content="Tobias Wessels">
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/monokai.css">
 
-        <meta name="apple-mobile-web-app-capable" content="yes" />
-        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>Slide 1</section>
+				<section>Slide 2</section>
+			</div>
+		</div>
 
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+		<script src="js/reveal.js"></script>
 
-        <link rel="stylesheet" href="css/reveal.css">
-        <link rel="stylesheet" href="css/oss.css">
-        <link rel="stylesheet" href="css/theme/night.css" id="theme">
-
-        <!-- Code syntax highlighting -->
-        <link rel="stylesheet" href="lib/css/zenburn.css">
-
-        <!-- Printing and PDF exports -->
-        <script>
-            var link = document.createElement( 'link' );
-            link.rel = 'stylesheet';
-            link.type = 'text/css';
-            link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
-            document.getElementsByTagName( 'head' )[0].appendChild( link );
-        </script>
-
-        <!--[if lt IE 9]>
-        <script src="lib/js/html5shiv.js"></script>
-        <![endif]-->
-    </head>
-
-    <body>
-
-        <div class="reveal">
-
-            <!-- Any section element inside of this container is displayed as a slide -->
-            <div class="slides">
-                <section>
-                    <img src="img/gitlab-banner.webp" height="300px" height=auto alt="Gitlab Icon">
-                    <h3>Techtalk</h3>
-                    <p>
-                        <small><a href="mailto:twe@ongoingmedia.de">Tobias Wessels</a></small>
-                    </p>
-                </section>
-
-                <section  data-transition="slide" data-background="#5C4033" data-background-transition="zoom">
-                    <section>
-                        <h2>Einführung</h2>
-                    </section>
-                    <section>
-                        <h3>Continuous Integration</h3>
-                        <p class="fragment fade-up">..beschreibt das <span class="fragment highlight-blue">fortlaufende Zusammenfügen</span> von Komponenten zu einer Anwendung mit dem Ziel die <span class="fragment highlight-blue">Softwarequalität</span> zu erhöhen.</p>
-                    </section>
-                    <section>
-                        <h3>Continuous Deployment</h3>
-                        <p class="fragment fade-up">..bezeichnet das <span class="fragment highlight-blue">automatische Einspielen</span> von Softwareversionen auf Entwicklungs-, Test-, Integrations- und Produktivumgebung
-                    </section>
-                    <section>
-                        <h3>Keine Silver Bullets – außer Continuous Delivery?</h3>
-                        <img src="img/cd_vorteile.png" width="700px" height=auto alt="CD Vorteile">
-                        <p><a href="https://puppet.com/resources/whitepaper/state-of-devops-report">2018 State of DevOps Report</a></p>
-                    </section>
-                    <section>
-                        <h3>Klassiche CI Tools</h3>
-                        <ul>
-                            <li>Hudson/Jenkins</li>
-                            <li>TeamCity</li>
-                            <li>CruiseControl</li>
-                            <li>uvw.</li>
-                        </ul>
-                        <img src="img/classic-cis.jpg" width="200px" height=auto alt="Classic CI Tools">
-                    </section>
-                    <section>
-                        <h3>Neue Welle</h3>
-                        <ul>
-                            <li>TravisCI</li>
-                            <li>CircleCI</li>
-                            <li>GitLab CI/CD</li>
-                        </ul>
-                        <img src ="img/new-wave.jpg" width="200px" height=auto alt="New Wave of CI Tools">
-                        <p class="fragment fade-up">Speichere im Repository <br>wie Modul gebaut und deployed werden soll</p>
-                     </section>
-                </section>
-
-                <section data-transition="slide" data-background="#362819" data-background-transition="zoom">
-                    <section>
-                        <h2>GitLab CI/CD</h2>
-                    </section>
-                    <section>
-                        <blockquote cite="https://docs.gitlab.com/ce/ci/quick_start/">
-                            &ldquo;Starting from version 8.0, GitLab Continuous Integration (CI) is fully integrated into GitLab itself and is enabled by default on all projects.&rdquo;
-                        </blockquote>
-                    </section>
-                    <section>
-                        <h3>GitLab CE</h3>
-                        <ul>
-                            <li>CI/CD ist ein Kernstück von GitLab</li>
-                            <li>Kann auch auf GitHub verwendet werden</li>
-                            <li>Open Source</li>
-                        </ul>
-                    </section>
-                    <section>
-                        <h3>Features</h3>
-                        <ul>
-                            <li>Application Performance Monitoring</li>
-                            <li>Alerting</li>
-                            <li>Built-in Container Registry</li>
-                            <li>Built for using containers and Docker</li>
-                            <li>Cloud Native</li>
-                            <li>Code Quality Reports</li>
-                        </ul>
-                        <aside class="notes">
-                            From <a href="https://about.gitlab.com/devops-tools/travis-ci-vs-gitlab.html">about.gitlab.com</a>
-                        </aside>
-                    </section>
-                    <section>
-                        <h2>Auto DevOps</h2>
-                        <img src="img/lifecycle.png" height="300px" width=auto>
-                    </section>
-                    <section>
-                        <h2>Auto DevOps</h2>
-                        <img src="img/auto-features.png" height="300px" width=auto>
-                    </section>
-                    <section>
-                        <h2>gitlab-ci.yml</h2>
-                        <img src="img/gitlab-ci-yml.png" height=auto widht="400px" alt="gitlab-ci.yml">
-                    </section>
-                    <section>
-                        <img src="img/goethe.jpg" height="300px" width=auto alt="Goethe portrait">
-                        <blockquote cite="Goethe">
-                            &ldquo;Ein edles Beispiel macht die schweren Taten leicht.&rdquo;
-                        </blockquote>
-                    </section>
-                    <section>
-                        <h3>Simples Beispiel</h3>
-                    <pre><code class="hljs" data-trim>
-image: maven:3-jdk-8
-
-build:
-  stage: build
-  script: mvn compile
-
-test:
-  stage: test
-  script: mvn test
-
-deploy:
-  stage: deploy
-  script: mvn deploy
-  only:
-    - master
-                    </code></pre>
-                    </section>
-                    <section>
-                        <blockquote>
-                        Auch branches sollten gebaut werden, wenn etwas eingecheckt wird!
-                        </blockquote>
-                    </section>
-                    <section>
-                        <h3>Artefakte persitieren</h3>
-                    <pre><code class="hljs" data-trim>
-maven-build:
-  stage: build_jar
-  script:
-   - echo "Building the app"
-   - mvn package -B
-  artifacts:
-    paths:
-      - target/*
-    expire_in: 5min
-                    </code></pre>
-                    </section>
-                    <section>
-                        <h3>Docker Images bauen</h3>
-                    <pre><code class="hljs" data-trim>
-docker-build:
-  stage: build_container
-  image: docker:stable
-  script:
-    - mv target/*.jar my-webapp.jar
-    - docker build -t my-docker-image .
-                    </code></pre>
-                    </section>
-                    <section>
-                        <h3>Deploy</h3>
-                    <pre><code class="hljs" data-trim>
-deploy:
-  stage: deploy
-  image: docker:stable
-  script:
-    - echo "Deploying endpoint"
-    - docker run -d -p 8080:8080 my-docker-image
-  only:
-  - master
-                    </code></pre>
-                    </section>
-                    <section>
-                        <h3>Rules</h3>
-                    <pre><code class="hljs" data-trim>
-docker build:
-  script: docker build -t my-image:$CI_COMMIT_REF_SLUG .
-  rules:
-    - changes:
-      - Dockerfile
-                    </code></pre>
-                    </section>
-                    <section>
-                        <h2>Pipeline Architektur</h2>
-                        <a href="https://docs.gitlab.com/ee/ci/pipelines/pipeline_architectures.html">pipeline_architectures.html</a>
-                    </section>
-                    <section>
-                        <h2>Runners</h2>
-                        <img src="img/gitlab-ci-overview-small.png" height="400px" widht=auto alt="Gitlab Architecture">
-                    </section>
-                    <section>
-                        <h2>Shell Runner</h2>
-                    <pre><code class="hljs" data-trim data-line-numbers="4">
-sudo gitlab-runner register -n \
-  --url https://gitlab.com/ \
-  --registration-token REGISTRATION_TOKEN \
-  --executor shell \
-  --description "My Runner"
-                    </code></pre>
-                    </section>
-                    <section>
-                        <h2>Docker Runner</h2>
-                    <pre><code class="hljs" data-trim data-line-numbers="4">
-sudo gitlab-runner register -n \
-  --url https://gitlab.com/ \
-  --registration-token REGISTRATION_TOKEN \
-  --executor docker \
-  --description "My Docker Runner" \
-  --docker-image "docker:19.03.8" \
-  --docker-privileged \
-  --docker-volumes "/certs/client"
-                    </code></pre>
-                    </section>
-                    <section>
-                        <h2>Docker Runner</h2>
-                        <ul>
-                            <li>Polyglot Pipelines</li>
-                            <li>Test- und Livesystem müssen garnicht mehr so verschieden sein</li>
-                    </ul>
-                    </section>
-                </section>
-                <section  data-transition="slide" data-background="#855E42" data-background-transition="zoom">
-                    <section>
-                        <h2>Demonstration</h2>
-                    </section>
-                    <section>
-                        <h2>GitLab CI/CD Installation</h2>
-                        <p><a href="http://gitlabtechtalk.ddns.net/">http://gitlabtechtalk.ddns.net/</a></p>
-                    </section>
-                </section>
-                <section  data-transition="slide" data-background="#1d1e22" data-background-transition="zoom">
-                    <section>
-                        <h2>Fazit</h2>
-                    </section>
-                    <section>
-                        <h3>Überflüssig?</h3>
-                        <ul>
-                            <li>Jenkins</li>
-                            <li>Nexus Repository Manager</li>
-                            <li>SonarQube</li>
-                            <li>Alerting / Monitoring VM</li>
-                        </ul>
-                    </section>
-                    <section>
-                        <h3>Vorteile gegenüber Jenkins</h3>
-                        <ul>
-                            <li>Templating</li>
-                            <li>Build- und Deployanweisungen im Repository</li>
-                            <li>Autoscaling for Runners</li>
-                            <li>Docker Support</li>
-                            <li>DAG Pipeline verkürzt Bauzeit</li>
-                            <li>Rules Keyword: Baue nur wenn wirklich nötig</li>
-                        </ul>
-                    </section>
-                    <section data-background="img/giphy.gif">
-                        <h2>... Fragen?</h2>
-                    </section>
-                </section>
-            </div>
-
-        </div>
-
-        <script src="lib/js/head.min.js"></script>
-        <script src="js/reveal.js"></script>
-
-        <script>
-
-            // Full list of configuration options available at:
-            // https://github.com/hakimel/reveal.js#configuration
-            Reveal.initialize({
-                controls: true,
-                progress: true,
-                history: true,
-                center: true,
-
-                transition: 'slide', // none/fade/slide/convex/concave/zoom
-
-                // Optional reveal.js plugins
-                dependencies: [
-                    { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
-                    { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-                    { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-                    { src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
-                    { src: 'plugin/zoom-js/zoom.js', async: true },
-                    { src: 'plugin/notes/notes.js', async: true }
-                ]
-            });
-
-        </script>
-
-    </body>
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				hash: true,
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/highlight/highlight.js' },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+		</script>
+	</body>
 </html>
