@@ -1,40 +1,355 @@
 <!doctype html>
-<html>
+<html lang="en">
+
 	<head>
 		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>reveal.js</title>
+		<title>Flutter Techtalk</title>
+
+		<meta name="description" content="">
+		<meta name="author" content="Tobias Wessels">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 		<link rel="stylesheet" href="dist/reset.css">
 		<link rel="stylesheet" href="dist/reveal.css">
-		<link rel="stylesheet" href="dist/theme/black.css" id="theme">
+		<link rel="stylesheet" href="dist/theme/simple.css" id="theme">
 
-		<!-- Theme used for syntax highlighted code -->
+		<!-- Theme used for syntax highlighting of code -->
 		<link rel="stylesheet" href="plugin/highlight/monokai.css" id="highlight-theme">
 	</head>
+
 	<body>
+
 		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
+				<section>
+                    <img src="img/flutter-logo.png" height="300px" height=auto alt="Flutter Logo">
+                    <h3>Techtalk</h3>
+                    <p>
+                        <small><a href="mailto:twe@ongoingmedia.de">Tobias Wessels</a></small>
+                    </p>
+                </section>
+				<section>
+					<section>
+						<h2>Einleitung</h2>
+                        <blockquote cite="https://docs.gitlab.com/ce/ci/quick_start/">
+                            &ldquo;
+	Flutter ist ein Open-Source <b>UI-Entwicklungs-Kit</b> von Google und basiert auf der Programmiersprache <b>Dart</b>.
+	Laut Hersteller liegt der Fokus von Flutter auf kurzen Entwicklungszeiten, schneller Ausführungsgeschwindigkeit
+	und "nativer User Experience".
+                            &rdquo;
+                        </blockquote>
+					</section>
+					<section>
+						<h2>Ziel</h2>
+						<ul>
+							<li>Eine Codebasis für viele verschiedene Zielsysteme (Cross-Plattform-Funktionalität)</li>
+							<li>Es soll überall eine Bildrate von 60Hz (bzw. 120 Hz) erreicht werden
+						</ul>
+	                    <img src="img/flutter-crossplattform.png" height="300px" height=auto alt="">
+
+					</section>
+					<section>
+						<h2>Zielplattformen</h2>
+						<p>
+			Ein Flutter-Programm soll ohne größere Anpassungen auf folgenden Zielplattformen lauffähig sein:
+						</p>
+						<ul>
+							<li><b>Android</b></li>
+							<li><b>iOS</b></li>
+							<li>Web</li>
+							<li>Windows</li>
+							<li>Linux</li>
+							<li>macOS</li>
+							<li>und Google Fuchsia</li>
+						</ul>
+					</section>
+					<section>
+						<h2>Alternativen?</h2>
+						<img src="img/react-native-logo.png" height="200px" height=auto alt="React Native">
+						<blockquote cite="https://medium.com/47billion/flutter-how-does-it-works-6e4c73842e67"> &ldquo;
+						React Native uses the JavaScript bridge to communicate with native modules, which results in poor performance.
+					 &ldquo;</blockquote>
+
+					</section>
+
+				</section>
+
+				<section>
+					<section>
+						<h2>Aufbau</h2>
+						<ul>
+							<li>Flutter ist in C++ geschrieben und</li>
+							<li>verwendet die Dart Virtual Machine (Dart-VM)</li>
+							<li>sowie die Grafikbibliothek Skia</li>
+						</ul>
+						<p>WebApps werden nach JavaScript übersetzt und laufen direkt im Browser
+						</p>
+					</section>
+					<section>
+						<h2>Beispiel - WebApp</h2>
+                   		 <a href="https://ferraridamiano.github.io/Converter-NOW-WEB/#/"><img src="img/flutter-web.png" height="500px" height=auto alt="Flutter Web"></a>
+					</section>
+					<section>
+						<h2>Beispiel - iOS</h2>
+                   		 <img src="img/flutter-ios.png" height="500px" height=auto alt="Flutter Web">
+					</section>
+					<section>
+						<h2>Beispiel - Android</h2>
+                   		 <img src="img/flutter-android.png" height="500px" height=auto alt="Flutter Web">
+					</section>
+					<section>
+                   		 <img src="img/FrameworkLayer.png" height="500px" height=auto alt="Framework Layer">
+					</section>
+					<section>
+						<h2>Material Design</h2>
+							<ul>
+								<li>Flutter verwendet diese <b>Designsprache</b> von Google</li>
+								<li>Objekte unterliegen <b>physikalischen Gesetzen</b></li>
+								<li>Benutzeroberflächen werden zunächst aus Pappe gebaut</li>
+							</ul>
+							<img src="img/material-design-example.png" height="350px" height=auto alt="Material Design Language">
+					</section>
+					<section>
+						<h2>Material</h2>
+							<img src="img/material-design.png" height="500px" height=auto alt="Material Design Language">
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<img src="img/dart-logo.png" height="150px" height=auto alt="Dart Logo">
+						<ul>
+							<li><b>Erschienen 2011</b> (vor 9 Jahren)</li>
+							<li>Objektorientiert</li>
+							<li>Garbage Collection</li>
+							<li>C-style Syntax</li>
+							<li>Ahead Of Time compilation (AOT)</li>
+							<li>Just In Time compilation (JIT) (when needed)</li>
+						</ul>
+					</section>
+
+					<section>
+						<pre><code class="hljs" data-trim>
+							class Bicycle {
+								int cadence;
+								int _speed = 0;
+								int get speed => _speed;
+								int gear;
+
+								Bicycle(this.cadence, this.gear);
+
+								void applyBrake(int decrement) {
+								  _speed -= decrement;
+								}
+
+								void speedUp(int increment) {
+								  _speed += increment;
+								}
+						</code></pre>
+					</section>
+					<section>
+						<pre><code class="hljs" data-trim>
+								     @override
+								     String toString() => 'Bicycle: $_speed mph';
+							  }
+
+							  void main(List&lt;String&gt; args) {
+								    var bike = new Bicycle(2, 1);
+								    print(bike);
+							  }
+						</code></pre>
+					</section>
+					<section>
+						<h2>DartPad - Online Editor</h2>
+	                    <a href="http://dartpad.dev/"><img src="img/dartpad.png" height="400px" height=auto alt="DartPad" target="_blank"></a>
+					</section>
+				</section>
+
+
+				<section>
+					<section>
+						<h2><a href="https://dartpad.dev/aeb019888f3a99b2297414217dde159e">Minimal Flutter App</a></h2>
+						<pre><code class="hljs" data-trim>
+import 'package:flutter/widgets.dart';
+
+main() => runApp(MyApp());
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(context) => Center(
+    child: Text('Hello Flutter!', textDirection: TextDirection.ltr)
+  );
+}
+						</code></pre>
+					</section>
+					<section>
+						<h2><a href="https://dartpad.dev/4ab29eadfc5111e081b0d25562d7f6ce">Minimal Material App</a></h2>
+						<pre><code class="hljs" data-trim>
+import 'package:flutter/material.dart';
+
+main() => runApp(MyApp());
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(context) {
+    return MaterialApp(
+      home: Scaffold(
+        body: Center(
+          child: Text('Hello World'),
+        ),
+      ),
+    );
+  }
+}
+						</code></pre>
+					</section>
+					<section>
+						<h2><a href="https://dartpad.dev/e2ce210c24ba107fb38f7d501b586334">Minimal Stateful App</a></h2>
+						<pre><code class="hljs" data-trim>
+import 'package:flutter/material.dart';
+
+main() => runApp(MinimalStatefulApp());
+
+class MinimalStatefulApp extends StatefulWidget {
+  @override
+  _MinimalState createState() => _MinimalState();
+}
+
+
+						</code></pre>
+					</section>
+					<section>
+						<pre><code class="hljs" data-trim>
+class _MinimalState extends State&lt;MinimalStatefulApp&gt; {
+
+  int _counter = 0;
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onDoubleTap: () => setState(() => _counter++),
+      child: Center(
+        child: Text(
+          'Counter: $_counter',
+          textDirection: TextDirection.ltr,
+        ),
+      ),
+    );
+  }
+}
+						</code></pre>
+					</section>
+					<section>
+						<h2>Async/Await</h2>
+						<pre><code class="hljs" data-trim>
+import 'package:flutter/material.dart';
+
+void main() => runApp(MaterialApp(
+    home: Scaffold(body:Center(child: MyWidget()))));
+
+Future&lt;String&gt; callAsyncFetch() =>
+	Future.delayed(Duration(seconds: 2), () => "hi");
+						</code></pre>
+					</section>
+					<section>
+						<h2><a href="https://dartpad.dev/99c4df1dcb397d92a5246e0fc5e1088f">Async/Await</a></h2>
+						<p>The <span style="background-color: lightgrey;">callAsyncFetch</span> function could be an HTTP call, a Firebase call, or a
+							call to SharedPreferences or SQLite, etc. Anything that returns a Future 🔮
+						</p>
+					</section>
+					<section>
+						<pre><code class="hljs" data-trim>
+class MyWidget extends StatelessWidget {
+  @override
+  Widget build(context) {
+    return FutureBuilder&lt;String&gt;(
+      future: callAsyncFetch(),
+      builder: (context, AsyncSnapshot&lt;String&gt; snapshot) {
+        if (snapshot.hasData) {
+          return Text(snapshot.data);
+        } else {
+          return CircularProgressIndicator();
+        }
+      }
+    );
+  }
+}
+						</code></pre>
+					</section>
+					<section>
+						<h2><a href="https://dartpad.dev/99c4df1dcb397d92a5246e0fc5e1088f">Async/Await</a></h2>
+						<p style="text-align: center; font-size: 0.7em;">📭 no data… we show a progress indicator <br>
+✅ data from our future… we use it to feed any widgets for display!<br>
+❌ error from our future… we show an appropriate message</p>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>Fazit</h2>
+						<ul>
+							<li>Design "passiert" automatisch. 🎨 Nur Hierarchie der Wigets muss definiert werden</li>
+							<li>Schneller Weg zur nativen mobilen App </li>
+							<li>Das Tooling ist super! 🛠</li>
+							<li>Große Community</li>
+							<li>Asychrone Programmierung <br>(ähnlich der Promise API in JS) ❤️</li>
+						</ul>
+					</section>
+					<section>
+						<h3>Kritik</h3>
+                        <blockquote cite="techlead">
+                            &ldquo;Optimize for the user and not the developer&rdquo; -techlead
+                        </blockquote>
+                        <ul>
+                    	<li>
+                        	Stimmt für große Unternehmen! GMail, GMaps, Instagram, Netflix usw sind alles nativ geschriebene Programme.
+                        </li>
+                        <li>
+                        	Größere Firmen können es sich leisten, zwei Teams für iOS und Android zu angagieren und zu optmieren.
+                        </li>
+                        </ul>
+					</section>
+					<section>
+						<h2>Links</h2>
+						<ul>
+							<li><a href="https://flutter.dev">flutter.dev</a></li>
+							<li><a href="https://flutterigniter.com/">flutterigniter.com</a></li>
+							<li><a href="https://reddit.com/r/flutterdev">/r/flutterdev</a></li>
+						</ul>
+					</section>
+				</section>
+
 			</div>
+
 		</div>
 
 		<script src="dist/reveal.js"></script>
+		<script src="plugin/zoom/zoom.js"></script>
 		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/search/search.js"></script>
 		<script src="plugin/markdown/markdown.js"></script>
 		<script src="plugin/highlight/highlight.js"></script>
 		<script>
-			// More info about initialization & config:
-			// - https://revealjs.com/initialization/
-			// - https://revealjs.com/config/
+
+			// Also available as an ES module, see:
+			// https://revealjs.com/initialization/
 			Reveal.initialize({
+				controls: true,
+				progress: true,
+				center: true,
 				hash: true,
 
 				// Learn about plugins: https://revealjs.com/plugins/
-				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+				plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight ]
 			});
+
 		</script>
+
 	</body>
 </html>
